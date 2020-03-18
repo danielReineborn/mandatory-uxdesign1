@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 
+
 const increaseSize = keyframes`
 from {
   width: 85%;
@@ -15,6 +16,7 @@ to {
 `;
 
 const Container = styled.div`
+
 box-sizing: border-box;
 position: relative;
 width: ${props => props.width ? props.width + "px" : '280px'};
@@ -105,6 +107,28 @@ label {
 `;
 
 
+const Disabled = styled.div`
+
+  margin: 15px;
+
+.disabled-cont {
+  position: relative;
+  width: ${props => props.width ? props.width + "px" : '280px'};
+  height: 56px;
+  background-color: #e0e0e0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+
+}
+
+.disabled-label {
+  padding-left: 12px;
+  line-height: 56px;
+  color: #8a8a8a;
+}
+
+`
+
 export default function TextField({ disabled, width, placeHolder }) {
   const [state, updateState] = useState("");
 
@@ -125,6 +149,13 @@ export default function TextField({ disabled, width, placeHolder }) {
       </form>
     </Container>
 
+  } else {
+    textField = <Disabled width={width}>
+      <div className="disabled-cont">
+        <p className="disabled-label">{placeHolder}</p>
+
+      </div>
+    </Disabled >
   }
 
   return textField;

@@ -1,31 +1,5 @@
-/* .line-cont {
-  position: absolute;
-  bottom: 0;
-  height: 2px;
-  width: 100%;
-  background-color: transparent;
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
+body {
+  font-family: 'Roboto', sans-serif;
 }
-
-@keyframes example {
-  from {
-    width: 85%;
-    left: 7.5%;
-  }
-
-  to {
-    width: 100%;
-    left: 0%;
-
-  }
-}
-
-
-
-#text:focus~.line-cont {
-  animation: example 1s;
-  height: 2px;
-  width: 100%;
-  background-color: #6200ee;
-  animation-fill-mode: forwards;
-} */
