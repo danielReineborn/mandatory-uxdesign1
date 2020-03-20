@@ -246,7 +246,6 @@ export default function Switch({ disabled }) {
     </CustomSwitch>
   } else if (!disabled.on) {
     slider = <DisabledSwitch>
-      <input type="checkbox" />
       <span className="slider"></span>
     </DisabledSwitch>
   } else {

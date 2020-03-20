@@ -4,6 +4,7 @@ import './App.css';
 import TextField from "./Components/TextField";
 import Switch from "./Components/Switch";
 import CheckBox from "./Components/CheckBox";
+import RadioBtn from "./Components/RadioBtn";
 
 function App() {
   return (
@@ -22,6 +23,14 @@ function App() {
 
       <div>
         <CheckBox />
+        <CheckBox />
+      </div>
+
+      <div>
+        <RadioBtn />
+
+        <RadioBtn />
+
       </div>
     </div>
   );
