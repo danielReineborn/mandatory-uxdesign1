@@ -5,7 +5,7 @@ import { Check } from "@material-ui/icons";
 const Box = styled.label`
   box-sizing: border-box;
   position: relative;
-  display: block;
+  display: inline-block;
   margin: 15px;
   
   .check {
@@ -39,25 +39,7 @@ const Box = styled.label`
     justify-content: center;
     align-items: center;
     transition: 0.5s;
-
-    /* :hover ~ .fx {
-      box-sizing: border-box;
-      z-index: 1;
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      height: 20px;
-      width: 20px;
-      border-radius: 50%;
-      transform: scale(2.5);
-      background-color: black;
-      background-color: #f9f5ff;
-    } */
-
-    
   }
-
-  
 
   input {
     height: 0px;
@@ -119,7 +101,8 @@ const Box = styled.label`
       width: 20px;
       border-radius: 50%;
       transform: scale(2.5);
-      background-color: #f9f5ff;
+      background-color: #9b9b9b;
+      opacity: 0.15;
       
     }
 
@@ -167,14 +150,41 @@ const Box = styled.label`
   }
 `
 
-export default function CheckBox() {
+const DisabledBox = styled.label`
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  margin: 15px;
+  .checkmarkDis {
+    box-sizing: border-box;
+    z-index: 2;
+    
+    height: 20px;
+    width: 20px;
+    border: 2px solid #636363;
+    opacity: 0.5;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+`
+
+export default function CheckBox({ disabled }) {
+
 
 
   return (
-    <Box>
-      <input type="checkbox" name="" id="" />
-      <span className="checkmark"><Check className="check"></Check></span>
-      <span className="fx"></span>
-    </Box >
+
+    disabled === false ?
+      <Box>
+        <input type="checkbox" name="" id="" />
+        <span className="checkmark"><Check className="check"></Check></span>
+        <span className="fx"></span>
+      </Box > :
+      <DisabledBox>
+        <span className="checkmarkDis"></span>
+      </DisabledBox>
+
   )
 }

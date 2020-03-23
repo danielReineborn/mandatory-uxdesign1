@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const BtnWrapper = styled.label` 
-box-sizing: border-box;
+  box-sizing: border-box;
   position: relative;
-  display: block;
+  display: inline-block;
   margin: 15px;
 
   .fakeBtn {
@@ -24,7 +24,7 @@ box-sizing: border-box;
     
 
     :hover:after {
-      display: block;
+      display: inline-block;
       background-color: #9b9b9b;
       opacity: 0.15;
     }
@@ -34,9 +34,6 @@ box-sizing: border-box;
   .fakeBtn:before {
     content: "";
     display: none;
-    /* position: absolute;
-    top: 0px;
-    left: 0px; */
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -46,8 +43,8 @@ box-sizing: border-box;
     content: "";
     display: none;
     position: absolute;
-    top: -2.5px;
-    left: -2.5px;
+    top: -2px;
+    left: -2px;
     width: 20px;
     height: 20px;
     transform: scale(2);
@@ -65,12 +62,12 @@ box-sizing: border-box;
     }
 
     :checked ~ .fakeBtn:before {
-      display: block;
+      display: inline-block;
       background-color: #6200ee;
     }
 
-    :checked + .fakeBtn:after {
-      display: block;
+    :checked:focus + .fakeBtn:after {
+      display: inline-block;
       background-color: #6200ee;
       opacity: 0.22;
   
@@ -78,7 +75,7 @@ box-sizing: border-box;
     
     
     :active ~ .fakeBtn:after {
-      display: block;
+      display: inline-block;
       background-color: #6200ee;
       opacity: 0.35;
     }
@@ -88,18 +85,44 @@ box-sizing: border-box;
 
 `
 
+const DisabledRadio = styled.label`
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  margin: 8px;
+  .fakeBtn {
+    box-sizing: border-box;
+    
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border: 2px solid #696969;
+    opacity: 0.5;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-export default function RadioBtn() {
-
-
-  function onClick(e) {
-    console.log(e.target.checked)
   }
+`
 
-  return (
-    <BtnWrapper>
-      <input onClick={onClick} type="radio" name="radio" id="radio" />
+export default function RadioBtn({ disabled, name }) {
+
+
+
+
+  let radio;
+  if (!disabled) {
+    radio = <BtnWrapper>
+      <input type="radio" name={name} id="radio" />
       <span className="fakeBtn"></span>
     </BtnWrapper>
-  )
+  } else {
+    radio = <DisabledRadio>
+      <span className="fakeBtn"></span>
+
+    </DisabledRadio>
+  }
+
+  return radio;
 }

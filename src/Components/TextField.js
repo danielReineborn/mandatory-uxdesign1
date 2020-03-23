@@ -108,11 +108,10 @@ label {
 
 
 const Disabled = styled.div`
-
-  margin: 15px;
+  margin-bottom: 18px;
 
 .disabled-cont {
-  position: relative;
+
   width: ${props => props.width ? props.width + "px" : '280px'};
   height: 56px;
   background-color: #e0e0e0;

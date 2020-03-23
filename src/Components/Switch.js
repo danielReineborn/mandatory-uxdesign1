@@ -189,8 +189,8 @@ position: relative;
   }
 `
 const DisabledSwitchOn = styled.label`
-position: relative;
-opacity: 0.8;
+  position: relative;
+  opacity: 0.8;
   margin: 45px;
   display: block;
   background-color: #ccb8e6;
@@ -204,7 +204,8 @@ opacity: 0.8;
     left: 0px;
     bottom: 0px;
     right: 0px;
-    border-radius: 16px;
+
+    border-radius: 18px;
   }
 
   .slider:before {
