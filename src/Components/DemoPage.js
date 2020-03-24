@@ -83,10 +83,10 @@ export default function DemoPage() {
         <h3 className="title">Text-field:</h3>
         <div className="cont-main">
           <p className="info">Interactive:</p>
-          <TextField disabled={false} id="text1" placeHolder="Cool Label" width="180" />
           <TextField disabled={false} id="text2" placeHolder="Label" width="280" />
           <div className="cont-sm">
             <p className="info">Custom width:</p>
+            <TextField disabled={false} id="text1" placeHolder="Cool Label" width="180" />
           </div>
         </div>
         <div className="cont">
