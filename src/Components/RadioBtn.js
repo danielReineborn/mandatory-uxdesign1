@@ -20,9 +20,7 @@ const BtnWrapper = styled.label`
     display: flex;
     justify-content: center;
     align-items: center;
-
     
-
     :hover:after {
       display: inline-block;
       background-color: #9b9b9b;
@@ -79,7 +77,49 @@ const BtnWrapper = styled.label`
       background-color: #6200ee;
       opacity: 0.35;
     }
-  
+
+    :disabled ~ .fakeBtn {
+
+      box-sizing: border-box;
+      
+      height: 20px;
+      width: 20px;
+      background-color: transparent;
+      border: 2px solid #696969;
+      opacity: 0.5;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      
+      :after {
+        display: none;
+      }
+    }
+
+    :checked:disabled ~ .fakeBtn {
+      box-sizing: border-box;
+      
+      height: 20px;
+      width: 20px;
+      background-color: transparent;
+      border: 2px solid #696969;
+      opacity: 0.5;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      :before {
+        display: inline-block;
+        background-color: #8d8d8d;
+      }
+
+      :after {
+        display: none;
+      }
+    }
   }
 
 
@@ -106,23 +146,25 @@ const DisabledRadio = styled.label`
   }
 `
 
-export default function RadioBtn({ disabled, name }) {
+export default function RadioBtn({ checked, disabled, name }) {
 
 
 
 
-  let radio;
-  if (!disabled) {
-    radio = <BtnWrapper>
-      <input type="radio" name={name} id="radio" />
+  /*  let radio;
+   if (!disabled) {
+     radio = 
+   } else {
+     radio = <DisabledRadio>
+       <span className="fakeBtn"></span>
+ 
+     </DisabledRadio>
+   } */
+
+  return (
+    <BtnWrapper>
+      <input checked={checked} disabled={disabled} type="radio" name={name} id="radio" />
       <span className="fakeBtn"></span>
     </BtnWrapper>
-  } else {
-    radio = <DisabledRadio>
-      <span className="fakeBtn"></span>
-
-    </DisabledRadio>
-  }
-
-  return radio;
+  );
 }

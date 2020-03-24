@@ -147,18 +147,15 @@ const Box = styled.label`
     border-radius: 50%;
     transform: scale(2.5);
     background-color: #a472ea;
-  }
-`
 
-const DisabledBox = styled.label`
-  box-sizing: border-box;
-  position: relative;
-  display: inline-block;
-  margin: 15px;
-  .checkmarkDis {
+    
+
+  }
+
+  input:disabled ~ .checkmark {
     box-sizing: border-box;
     z-index: 2;
-    
+  
     height: 20px;
     width: 20px;
     border: 2px solid #636363;
@@ -168,23 +165,25 @@ const DisabledBox = styled.label`
     justify-content: center;
     align-items: center;
     transition: 0.5s;
+    
+  }
+
+  input:disabled ~ .checkmark:hover ~ .fx {
+    display: none;
+  }
+
+  input:checked:disabled ~ .checkmark {
+    background-color: #8d8d8d;
+    border: 2px solid #8d8d8d;
+  }
 `
 
-export default function CheckBox({ disabled }) {
-
-
-
+export default function CheckBox({ checked, disabled }) {
   return (
-
-    disabled === false ?
-      <Box>
-        <input type="checkbox" name="" id="" />
-        <span className="checkmark"><Check className="check"></Check></span>
-        <span className="fx"></span>
-      </Box > :
-      <DisabledBox>
-        <span className="checkmarkDis"></span>
-      </DisabledBox>
-
+    <Box>
+      <input checked={checked} disabled={disabled} type="checkbox" name="check" id="" />
+      <span className="checkmark"><Check className="check"></Check></span>
+      <span className="fx"></span>
+    </Box>
   )
 }

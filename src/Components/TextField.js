@@ -75,7 +75,6 @@ label {
   :focus {
 
     background-color: #dcdcdc;
-    /* border-bottom: 2px solid #6200ee; */
     outline: none;
   }
 
@@ -96,9 +95,9 @@ label {
   }
 
   :valid:not(:focus) + label {
-  color: #626262;
-  font-size: 0.75rem;
-  transform: translate(0px, -12px);
+    color: #626262;
+    font-size: 0.75rem;
+    transform: translate(0px, -12px);
 
   }
   
@@ -136,10 +135,9 @@ export default function TextField({ disabled, width, placeHolder }) {
     updateState(value);
   }
 
-
   let textField;
   if (!disabled) {
-    textField = <Container className="cont" width={width}>
+    textField = <Container width={width}>
       <form className="form">
         <input required autoComplete="off" onChange={handleChange} className="text-field" id="text" value={state} type="text" />
         <label htmlFor="text" className="label">{placeHolder}</label>
@@ -156,6 +154,5 @@ export default function TextField({ disabled, width, placeHolder }) {
       </div>
     </Disabled >
   }
-
   return textField;
 }

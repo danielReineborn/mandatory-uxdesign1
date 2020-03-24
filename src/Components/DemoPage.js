@@ -86,12 +86,10 @@ export default function DemoPage() {
           <TextField disabled={false} placeHolder="Label" width="280" />
           <div className="cont-sm">
             <p className="info">Custom width:</p>
-            <TextField disabled={false} placeHolder="Label" width="180" />
+            <TextField disabled={false} placeHolder="Cool Label" width="180" />
           </div>
-
         </div>
         <div className="cont">
-
           <div className="cont-sm">
             <p className="info-dis">Disabled:</p>
             <TextField className="text-dis-display" disabled={true} placeHolder="Label" width="280" />
@@ -103,22 +101,18 @@ export default function DemoPage() {
         <div className="cont-main">
           <p className="info">Interactive:</p>
           <Switch disabled={{ state: false, on: true, }} />
-
         </div>
         <div className="cont">
           <div className="cont-sm">
             <p className="info-dis">Disabled On:</p>
             <Switch disabled={{ state: true, on: true, }} />
-
           </div>
           <div className="cont-sm">
             <p className="info-dis">Disabled Off:</p>
             <Switch disabled={{ state: true, on: false, }} />
-
           </div>
         </div>
       </FlexContainer>
-
       <FlexContainer>
         <h3 className="title">Radio-button:</h3>
         <div className="cont-main">
@@ -127,17 +121,19 @@ export default function DemoPage() {
             <RadioBtn name="radio" disabled={false} />
             <RadioBtn name="radio" disabled={false} />
             <RadioBtn name="radio" disabled={false} />
-
           </div>
         </div>
 
-
         <div className="cont">
-          <p className="info-dis">Disabled:</p>
-          <RadioBtn disabled={true} />
-
+          <div className="cont-sm">
+            <p className="info-dis">Disabled checked:</p>
+            <RadioBtn checked={true} disabled={true} />
+          </div>
+          <div className="cont-sm">
+            <p className="info-dis">Disabled:</p>
+            <RadioBtn disabled={true} />
+          </div>
         </div>
-
       </FlexContainer>
       <FlexContainer>
         <h3 className="title">Checkbox:</h3>
@@ -151,10 +147,14 @@ export default function DemoPage() {
           </div>
         </div>
         <div className="cont">
-
-
-          <p className="info-dis">Disabled:</p>
-          <CheckBox disabled={true} />
+          <div className="cont-sm">
+            <p className="info-dis">Disabled checked:</p>
+            <CheckBox checked={true} disabled={true} />
+          </div>
+          <div className="cont-sm">
+            <p className="info-dis">Disabled:</p>
+            <CheckBox checked={false} disabled={true} />
+          </div>
         </div>
       </FlexContainer>
     </FullWidth >
