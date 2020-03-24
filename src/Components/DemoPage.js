@@ -12,13 +12,13 @@ width: 100vw;
 
 
 const FlexContainer = styled.main`
-display: flex;
-border: 1px solid #9b9b9b;
-flex-flow column;
-margin: 15px auto 15px auto;
+  display: flex;
+  border: 1px solid #9b9b9b;
+  flex-flow column;
+  margin: 15px auto 15px auto;
 
-height: 500px;
-width: 600px;
+  height: 500px;
+  width: 600px;
 
 .info {
   margin: 5;
@@ -83,10 +83,10 @@ export default function DemoPage() {
         <h3 className="title">Text-field:</h3>
         <div className="cont-main">
           <p className="info">Interactive:</p>
-          <TextField disabled={false} placeHolder="Label" width="280" />
+          <TextField disabled={false} id="text1" placeHolder="Cool Label" width="180" />
+          <TextField disabled={false} id="text2" placeHolder="Label" width="280" />
           <div className="cont-sm">
             <p className="info">Custom width:</p>
-            <TextField disabled={false} placeHolder="Cool Label" width="180" />
           </div>
         </div>
         <div className="cont">

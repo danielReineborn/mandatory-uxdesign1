@@ -44,6 +44,11 @@ label {
   :hover {
   cursor: text;
   }
+
+  :hover ~ .text-field {
+    background-color: rgba(236, 236, 236, 0.85);
+    border-bottom: 1px solid #1f1f1f;
+  }
 }
 .line-cont {
   position: absolute;
@@ -127,20 +132,15 @@ const Disabled = styled.div`
 
 `
 
-export default function TextField({ disabled, width, placeHolder }) {
-  const [state, updateState] = useState("");
+export default function TextField({ id, disabled, width, placeHolder }) {
 
-  function handleChange(e) {
-    let value = e.target.value;
-    updateState(value);
-  }
 
   let textField;
   if (!disabled) {
     textField = <Container width={width}>
       <form className="form">
-        <input required autoComplete="off" onChange={handleChange} className="text-field" id="text" value={state} type="text" />
-        <label htmlFor="text" className="label">{placeHolder}</label>
+        <input required autoComplete="off" className="text-field" id={id} type="text" />
+        <label htmlFor={id} className="label">{placeHolder}</label>
         <div className="line-cont">
         </div>
       </form>
